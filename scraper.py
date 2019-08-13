@@ -29,7 +29,7 @@ try:
             # content.append(Match(date, leagues[x].text.strip(), kick_off[x], home_team[x], away_team[x], (coverages[x])))
 
             content = {"leagues": leagues[x].text.strip(), "kickoff": kick_off[x], "home_team": home_team[x],
-                       "away_team": away_team[x], "coverages": covs[x], "date": ""}}
+                       "away_team": away_team[x], "coverages": covs[x], "date": ""}
 
             scraperwiki.sql.save(['home_team'], data=content)
 
