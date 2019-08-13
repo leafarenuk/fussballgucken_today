@@ -27,8 +27,11 @@ try:
         games = [gm.get_text() for gm in standings_table.select('.row.game')]
         
         for x, game in enumerate(games):
-            content.append(Match(date, leagues[x].text.strip(), kick_off[x], home_team[x], away_team[x], (coverages[x])))
-            scraperwiki.sql.save(unique_keys=['normal'], data=content)
+            # content.append(Match(date, leagues[x].text.strip(), kick_off[x], home_team[x], away_team[x], (coverages[x])))
+
+            scraperwiki.sql.save(unique_keys=['name'], data={"date": date, "leagues": leagues[x].text.strip(),
+                                                             "kickoff": kick_off[x], "home_team": home_team[x],
+                                                             "away_team": away_team[x], "coverages": coverages[x]})
 
     else:
         print(page_response.status_code)
