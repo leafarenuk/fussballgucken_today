@@ -24,7 +24,7 @@ try:
             covs.append(cov[:15])
 
         games = [gm.get_text() for gm in standings_table.select('.row.game')]
-
+        scraperwiki.sql.execute("DROP TABLE data")
         for x, game in enumerate(games):
             # content.append(Match(date, leagues[x].text.strip(), kick_off[x], home_team[x], away_team[x], (coverages[x])))
 
